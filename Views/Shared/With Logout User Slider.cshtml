@@ -1,0 +1,275 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <!--====== USEFULL META ======-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Transportation & Agency Template is a simple Smooth transportation and Agency Based Template" />
+    <meta name="keywords" content="Portfolio, Agency, Onepage, Html, Business, Blog, Parallax" />
+
+    <!--====== TITLE TAG ======-->
+    <title>STMS</title>
+
+    <!--====== FAVICON ICON =======-->
+    <link rel="shortcut icon" type="image/ico" href="~/User STMS Template/img/favicon.png" />
+
+    <!--====== STYLESHEETS ======-->
+    <link rel="stylesheet" href="~/User STMS Template/css/normalize.css">
+    <link rel="stylesheet" href="~/User STMS Template/css/animate.css">
+    <link rel="stylesheet" href="~/User STMS Template/css/stellarnav.min.css">
+    <link rel="stylesheet" href="~/User STMS Template/css/owl.carousel.css">
+    <link href="~/User STMS Template/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/User STMS Template/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--====== MAIN STYLESHEETS ======-->
+    <link href="~/User STMS Template/style.css" rel="stylesheet">
+    <link href="~/User STMS Template/css/responsive.css" rel="stylesheet">
+
+    <script src="~/User STMS Template/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body class="home-one">
+
+    <!--- PRELOADER -->
+    <div class="preeloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!--SCROLL TO TOP-->
+    <a href="#home" class="scrolltotop"><i class="fa fa-long-arrow-up"></i></a>
+
+    <!--START TOP AREA-->
+    <header class="top-area" id="home">
+        <div class="top-area-bg" data-stellar-background-ratio="0.6"></div>
+        <div class="header-top-area">
+            <!--MAINMENU AREA-->
+            <div class="mainmenu-area" id="mainmenu-area">
+                <div class="mainmenu-area-bg"></div>
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="#home" class="navbar-brand"><img src="~/User STMS Template/img/logo.png" alt="logo"></a>
+                        </div>
+                        <div class="search-and-language-bar pull-right">
+                            <ul>
+                                <li><a href="@Url.Action("Signout","User")">Log Out</a></li>
+                                <li><a href="#">User Name : @Session["username"].ToString() </a></li>
+
+                            </ul>
+                        </div>
+                        <div id="main-nav" class="stellarnav">
+                            <ul id="nav" class="nav navbar-nav">
+                                <li>
+                                    <a href="@Url.Action("Indexlogout","User")">Home</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("AboutUs2","Home")">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="#">Service</a>
+                                    <ul>
+                                        <li><a href="@Url.Action("User_Emergency","User")">Emergency</a></li>
+                                        <li><a href="@Url.Action("Index","Complaints")">Complains</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","vehicle_Search")">Vehicle Verification</a>
+                                </li>
+                                <li>
+                                    <a href="#feedback">FeedBack</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ContactUs2","Home")">Contact US</a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--END MAINMENU AREA END-->
+        <!--HOME SLIDER AREA-->
+        <div class="welcome-slider-area">
+            <div class="welcome-single-slide slider-bg-one">
+                <div class="container">
+                    <div class="row flex-v-center">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="welcome-text text-center">
+                                <h2>WE MAKE STRONGEST SERVICE ABOVE THE PAKISTAN</h2>
+                                <p>Smart Traffic Management System for Traffic Control using Automated Mechanical and Electronic Devices </p>
+                                <div class="home-button">
+                                    <a href="#">Our Service</a>
+                                    <a href="#">Our Event</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="welcome-single-slide slider-bg-two">
+                <div class="container">
+                    <div class="row flex-v-center">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="welcome-text text-center">
+                                <h2>WE MAKE STRONGEST SERVICE ABOVE THE PAKISTAN</h2>
+                                <p>Smart Traffic Management System for Traffic Control using Automated Mechanical and Electronic Devices </p>
+                                <div class="home-button">
+                                    <a href="#">Our Service</a>
+                                    <a href="#">Get A Quate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--END HOME SLIDER AREA-->
+    <!--END TOP AREA-->
+    <!-- START RENDOR BODY-->
+    <div>
+        @RenderBody()
+    </div>
+    <!-- END RENDOR BODY-->
+    <!--FOOER AREA-->
+    <div class="footer-area dark-bg">
+        <div class="footer-area-bg"></div>
+        <div class="footer-top-area wow fadeIn" id="feedback">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                        <div class="subscribe-content">
+                            <h2>FeedBack</h2>
+                            <p>Please Provide Your FeedBack Blow.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                        <div class="subscriber-form-area" >
+                            <form action="@Url.Action("Feedback","User")" class="subsriber-form" method="post" role="form">
+                                <label for="subscriber-mail"><i class="fa fa-envelope-o"></i></label>
+                                <input type="text" name="Description" id="subscriber-mail" placeholder="Enter Your FeedBack">
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-border"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-area wow fadeIn">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+                        <div class="single-footer-widget footer-about">
+                            <h3>About Us</h3>
+                            <p>Our mission to increase the traffic problems.</p>
+                            <ul>
+                                <li><i class="fa fa-phone"></i> <a href="#">+92-331-022-7151</a></li>
+                                <li><i class="fa fa-map-marker"></i><a href="#">stms@gmail.com</a></li>
+                                <li><i class="fa fa-phone"></i>Pakistan, Karachi DHA Phase #2</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+                        <div class="single-footer-widget twitter-widget">
+                            <h3>Latest Tweets</h3>
+                            <ul>
+                                <li>
+                                    <div class="twitter-icon"><i class="fa fa-phone"></i></div>
+                                    <div class="tweet-detail">
+                                        <p>Traffic is so good that companies have started giving work from cab.</p>
+
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="twitter-icon"><i class="fa fa-phone"></i></div>
+                                    <div class="tweet-detail">
+                                        <p>Lets work together to keep our country safe.</p>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+                        <div class="single-footer-widget list-widget">
+                            <h3>SITE MAP</h3>
+                            <ul>
+                                <li><a href="@Url.Action("AboutUs2","Home")">About Us</a></li>
+                                <li><a href="@Url.Action("User_Emergency","User")">Emergency</a></li>
+                                <li><a href="@Url.Action("Index","Complaints")">Complains</a></li>
+                                <li><a href="@Url.Action("ContactUs2","Home")">Contact Us</a></li>
+                                <li><a href="@Url.Action("Feedback","User")">FeedBack</a></li>
+                                <li><a href="@Url.Action("Index2","vehicle_Search")">Vehicle Registeration</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+                        <div class="single-footer-widget instafeed-widget">
+                            <h3>Customer Service</h3>
+                            <ul>
+                                <li><a href="#"><img src="img/instafeed/1.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="img/instafeed/2.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="img/instafeed/3.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="img/instafeed/4.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="img/instafeed/5.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="img/instafeed/6.jpg" alt=""></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-border"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                        <div class="footer-copyright wow fadeIn">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                        <div class="footer-social-bookmark text-right wow fadeIn">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FOOER AREA END-->
+
+    <!--====== SCRIPTS JS ======-->
+    <script src="~/User STMS Template/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/User STMS Template/js/vendor/bootstrap.min.js"></script>
+
+    <!--====== PLUGINS JS ======-->
+    <script src="~/User STMS Template/js/vendor/jquery.easing.1.3.js"></script>
+    <script src="~/User STMS Template/js/vendor/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/User STMS Template/js/vendor/jquery.appear.js"></script>
+    <script src="~/User STMS Template/js/owl.carousel.min.js"></script>
+    <script src="~/User STMS Template/js/stellar.js"></script>
+    <script src="~/User STMS Template/js/wow.min.js"></script>
+    <script src="~/User STMS Template/js/stellarnav.min.js"></script>
+    <script src="~/User STMS Template/js/contact-form.js"></script>
+    <script src="~/User STMS Template/js/jquery.sticky.js"></script>
+
+    <!--===== ACTIVE JS=====-->
+    <script src="~/User STMS Template/js/main.js"></script>
+
+</body>
+</html>

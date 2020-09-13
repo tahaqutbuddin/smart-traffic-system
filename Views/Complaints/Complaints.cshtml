@@ -1,0 +1,186 @@
+﻿@model IEnumerable<Smart_Trafic_Management_System.Models.Complaint>
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!--In Process Complaints -->
+
+<div class="orders">
+    <div class="row" >
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-center">Complaints</h4>
+                </div>
+            @using (Html.BeginForm("Complaints", "Complaints", FormMethod.Get))
+            {<div class="row">
+                <div class="col-md-2">
+                    @Html.DropDownList("list", null, new { @class = "form-control", onclick = "document.location.href'/Complaints/Complaints?Category_ID='+this.value'" })
+                </div>
+                 <div class="col-md-5">
+
+                     <span class="input-group-addon">Search By First name/Category/Title</span>
+                  </div>
+                      <div class="col-md-5">
+                     @Html.TextBox("search", "", new { @class = "form-control col-md-8" })
+                     <input type="submit" value="Search" id="submit" class="btn btn-success" />
+
+                 </div>
+
+            </div>
+
+
+            }
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table tab">
+                            <thead>
+                                <tr>
+                                   <th></th>
+                                    <th><b>Title</b></th>
+                                    <th><b>Category</b></th>
+                                    <th><b>Description</b></th>
+                                    <th><b>Date</b></th>
+                                    <th><b>Name</b></th>
+                                    <th><b>Status</b></th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                        @using (Html.BeginForm("Complaints", "Complaints", FormMethod.Post))
+                        {
+                               foreach (var complaint in ViewBag.c)
+                               {
+                                <tr class=".tr">
+                                    <td><input type="hidden" name="id" id="id" value="@complaint.Complaint_ID" /></td>
+                                    <td>@complaint.Title</td>
+                                    <td>  <span class="name">@complaint.Complaint_Category.Category_Name</span> </td>
+                                    <td> <span class="product">@complaint.Description</span> </td>
+                                    <td><span span class="name">@string.Format("{0:dd-MM-yyyy}", complaint.Date)</span></td> 
+                                    <td><span span class="name">@complaint.User.First_Name</span></td>
+                                    <td>
+                                        @if (@complaint.Status == "In_Process")
+                                        {
+                                            <input class="btn btn-outline-success" type="submit" name="value" value="Resolved" />
+                                        }
+                                        else {
+                                        <input class="btn btn-outline-primary" type="submit" name="value" value="In Process" />
+                                        }
+
+                                    </td>
+                                   
+                                </tr>
+                            }
+                        }
+
+
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+        
+    </div>
+</div>
+<!-- /.In Process Complaints -->
+
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#submit").click(function () {
+
+            $.get("/Complaints/getcategory", { Category_ID: $("#Category_ID").val() }, function (data) {
+
+                emptytable();
+
+                $.each(data, function (index, row) {
+
+                    $("tab").append("<tr><td><input type='" + hidden + "' name='" + id + "' id='" + id + "' value='" + row.Complaint_ID + "' /></td><td>" + row.Title + "</td><td>" + row.Complaint_Category.Category_Name + "</td><td>" + row.Description + "</td></tr>");
+                })
+            })
+        })
+
+        function emptytable() {
+            $('#submit').click(function () {
+                $("#tab").find("tr:gt(0)").remove();
+            });
+
+        }
+
+    })
+
+</script>
+
+
+<!-- Resolved Complaints
+    
+    <td>" + row + "</td><td>" + row + "</td><td>" + row + "</td>
+     -->
+@*<div class="orders">
+    <div class="row">
+        <div class="col-xl-8" style="margin-left:10%;margin-right:10%;">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">Resolved Complaints </h4>
+                </div>
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Title)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Complaint_Category.Category_Name)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Date)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Status)</th>
+                                    <th>@Html.DisplayNameFor(model => model.User.First_Name)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @using (Html.BeginForm("Complaints", "Complaints", FormMethod.Post)) 
+                            {
+                                foreach (var process in ViewBag.r)
+                                {
+
+                                    <tr>
+                                        <td><input type="hidden" name="id" id="id" value="@process.Complaint_ID" /></td>
+                                        <td>@process.Title</td>
+                                        <td>  <span class="name">@process.Complaint_Category.Category_Name</span> </td>
+                                        <td> <span class="name">@process.Description</span> </td>
+                                        <td><span class="name">@string.Format("{0:dd-MM-yyyy}", process.Date)</span></td>
+                                        <td><span class="name">@process.User.First_Name</span></td>
+                                        <td>
+                                            <input class="btn btn-outline-success" type="submit" name="value" value="Resolved"  />
+                                            
+                                        </td>
+                                        
+                                    </tr>
+
+                                }
+    }
+
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+
+    </div>
+</div>*@
+
+<!-- /.Resolved Complaints -->
+
+
+

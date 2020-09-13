@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Smart_Trafic_Management_System.Models.Vehicle_Registration>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_of_Registration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Registration_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vehicle_Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manufacturer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_of_Registration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Registration_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vehicle_Type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Vehicle_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Vehicle_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Vehicle_ID })
+        </td>
+    </tr>
+}
+
+</table>

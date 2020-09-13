@@ -1,0 +1,65 @@
+﻿@model  IEnumerable<Smart_Trafic_Management_System.Models.Emergency>
+
+@{
+    ViewBag.Title = "Emergency";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center">Emergency </h2>
+                </div>
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>First Name</th>
+                                    <th>Location<th>
+                                    <th>Address</th>
+                                    <th>Contact</th>
+                                    <th></th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @using(Html.BeginForm("Emergency", "Emergencies", FormMethod.Post))
+                                {
+                                    foreach (var EM in Model)
+                                    {
+
+                                        <tr>
+                                            <td><input type="hidden" name="id" id="id" value="@EM.Help_ID" /></td>
+                                            
+                                            <td><span class="name">@EM.User.First_Name</span> </td>
+                                            <td>@EM.Location</td>
+                                            <td><span class="name">@EM.User.Contact</span> </td>
+                                            <td><span class="name">@EM.User.Address</span> </td>
+                                            
+
+                                            <td>
+                                                <input class="btn btn-outline-success" type="submit" value="Forward" />
+                                            </td>
+                                            
+
+                                        </tr>
+
+                               
+
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+
+    </div>
+</div>
+<!-- /.User Verification Requests -->

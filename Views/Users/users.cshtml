@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Smart_Trafic_Management_System.Models.User>
+
+@{
+    ViewBag.Title = "users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- User Verification Requests -->
+
+ 
+
+
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center">User Verification Requests </h2>
+                </div>
+
+                @using (Html.BeginForm("users", "Users", FormMethod.Get))
+                {
+
+                    <div class="input-group">
+                        <span class="input-group-addon">Search By First/Last Name/Email</span>
+                        @Html.TextBox("search", "", new { @class = "form-control col-md-5" })
+                        <input type="submit" value="Search" class="btn btn-success" />
+
+
+                    </div>
+                }
+
+
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table" >
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th><b>First Name</b></th>
+                                    <th><b>Last Name</b></th>
+                                    <th><b>Address</b></th>
+                                    <th><b>Email/Username</b></th>
+                                    <th><b>Password</b></th>
+                                    <th><b>Contact</b></th>
+                                    <th><b>ID Proof</b></th>
+                                    
+                                    <th><b>Role</b></th>
+                                    <th><b>Status</b></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @using (Html.BeginForm("users", "Users", FormMethod.Post)) { 
+
+                                        foreach(var user in Model)
+                                        {
+
+                                        <tr>
+                                            <td><input type="hidden" name="id" id="id" value="@user.User_id" /></td>
+                                            <td>@user.First_Name.</td>
+                                            <td><span class="name">@user.Last_Name</span> </td>
+                                            <td><span class="name">@user.Address</span> </td>
+                                            <td><span class="name">@user.Email_ID</span></td>
+                                            <td><span class="name">@user.Password</span></td>
+                                            <td><span class="name">@user.Contact</span></td>
+                                            <td><span class="name">@user.ID_Proof</span> </td>
+                                            <td><span class="name">@user.Roles</span> </td>
+                                            <td><span class="name">@user.Status</span></td>
+                                            
+                                            <td>
+                                                <input class="btn btn-outline-success" type="submit" name="value" value="Approve" />
+                                            @*@*</td>
+                                            <td>*@
+                                                <input class="btn btn-outline-danger" type="submit" name="value" value="Reject" />
+                                            </td>
+
+                                        </tr>
+                                            }
+
+
+                                }
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+
+    </div>
+</div>
+
+<!-- /.User Verification Requests -->
+@*<script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#click").click(function () {
+            
+            
+            $.get("/Users/search", { id: $("#data").val() }, function (data) {
+
+                $.each(data, function (key,val) {
+
+
+                    $("<tr><td>" + val.First_Name + "</td><td>" + val.Last_Name + "</td><td>" + val.Address + "</td><td>" + val.Email_ID + "</td><td>" + val.Password + "</td><td>" + val.Contact + "</td></td>" + val.ID_Proof + "</td><td>" + val.Roles + "</td><td>" + val.Status + "</td><td><input type=" + submit + " class=" + btn + btn - outline - success + " name=" + value + " value=" + Approve + " ></td><td><input type=" + submit + " class=" + btn + btn - outline - danger + " name=" + value + " value=" + Reject + " ></td></tr>").appendTo("#tab");
+                });
+            });
+
+        });
+
+        
+    });
+</script>*@

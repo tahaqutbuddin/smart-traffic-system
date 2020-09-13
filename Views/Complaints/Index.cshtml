@@ -1,0 +1,156 @@
+﻿@model IEnumerable<Smart_Trafic_Management_System.Models.Complaint>
+
+@{
+    Layout = "~/Views/Shared/User Layout With Logout.cshtml";
+}
+
+        <!--END MAINMENU AREA END-->
+        </div>
+<div class="welcome-area">
+    <div class="area-bg"></div>
+    <div class="container">
+        <div class="row flex-v-center">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="welcome-text text-center">
+                    <h2>Our Complaint</h2>
+                    <ul class="page-location">
+                        <li><a href="#">Home</a></li>
+                        <li>/</li>
+                        <li><a href="#">Service</a></li>
+                        <li>/</li>
+                        <li><a href="#">Complaint</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+<!--END TOP AREA-->
+<!--SERVICE AREA-->
+<section class="service-area-two section-padding gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+                <div class="area-title text-center wow fadeIn">
+                    <h2>Our Complaint</h2>
+                    <p>Welcome to Our Complaint Centre, Country One Window Facilitation, your one step complaint facility system.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--SERVICE AREA END-->
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <br/>
+    <p>
+        @Html.ActionLink("Launch NEW Complain", "Create","Complaints",null,new { @class="btn btn-block btn-danger"})
+    </p>
+
+
+    <h4 class="box-title">Complaints </h4>
+    <form method="post" role="form">
+        <input type="search" name="Complaint_ID" />
+    <input type="submit" class="btn btn-success" value="Search"/>
+        <input type="button" value="Refresh" class="btn btn-success" id="btn-refresh" />
+    </form>
+    <br/>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model=>model.Complaint_ID)
+            </th>
+            <th>
+    @Html.DisplayNameFor(model => model.User.First_Name)
+</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Complaint_Category.Category_Name)
+            </th>
+            
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+ 
+        <!-- Orders -->
+       
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="card">
+                        <div class="card-body">
+                           
+                        </div>
+                        <div class="card-body--">
+                            <div class="table-stats order-table ov-h">
+                           
+                                     <tbody>
+
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem=>item.Complaint_ID)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.User.First_Name)
+    </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Title)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Date)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Status)
+                                            </td>
+                                          
+                                            <td>
+                                              @Html.DisplayFor(modelItem => item.Complaint_Category.Category_Name)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Details", "Details", new { id = item.Complaint_ID }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.Complaint_ID })
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                              
+                    </div>
+                    </div>
+                    </div>
+                    </div>  
+                    </div>
+     
+
+
+
+
+    }
+
+
+    </table>
+</body>
+</html>

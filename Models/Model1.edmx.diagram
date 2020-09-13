@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="02414a640c444f1f8c76fe0be2610d84" Name="Diagram1">
+        <EntityTypeShape EntityType="CodeTitansModel.Complaint_Category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodeTitansModel.Complaint" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodeTitansModel.Emergency" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodeTitansModel.Feedback" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodeTitansModel.Notification" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodeTitansModel.User" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CodeTitansModel.Vehicle_Registration" Width="1.5" PointX="5.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="CodeTitansModel.FK_Complaints_Complaint_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="CodeTitansModel.FK_Complaints_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="CodeTitansModel.FK_Emergency_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="CodeTitansModel.FK_Feedback_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

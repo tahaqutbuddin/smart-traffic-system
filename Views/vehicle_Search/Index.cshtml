@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Smart_Trafic_Management_System.Models.Vehicle_Registration>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/User Layout With Logout.cshtml";
+}
+
+<!--END MAINMENU AREA END-->
+        </div>
+<div class="welcome-area">
+    <div class="area-bg"></div>
+    <div class="container">
+        <div class="row flex-v-center">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="welcome-text text-center">
+                    <h2>Online Vehicle Verification</h2>
+                    <ul class="page-location">
+                        <li><a href="#">Home</a></li>
+                        <li>/</li>
+                        <li><a href="#">Vehicle Verification</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </header>
+<!--END TOP AREA-->
+<!--SERVICE AREA-->
+<section class="service-area-two section-padding gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3 col-sm-12 col-xs-12">
+                <div class="area-title text-center wow fadeIn">
+                    <h2>Vehicle Verification</h2>
+                    <p>Verify your motor car/bike Registration, SMTS Vehicle Verification online,we’ve just made it easier for you.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</section>
+<!--SERVICE AREA END-->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <form method="post" action="">
+        <input type="text" name="Registration_Number" />
+        <input type="Submit" value="Serach" />
+    </form>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">@Html.DisplayName("Manufacturer")</th>
+                <th scope="col">@Html.DisplayName("Date Of Registeration")</th>
+                <th scope="col">@Html.DisplayName("Registeration Number")</th>
+                <th scope="col">@Html.DisplayName("Model")</th>
+                <th scope="col">@Html.DisplayName("Remarks")</th>
+                <th scope="col">@Html.DisplayName("Vehicle Type")</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+
+            <tbody>
+                <tr>
+                    @*<th scope="row"></th>*@
+                    <td>@Html.DisplayFor(modelItem => item.Manufacturer)</td>
+                    <td>@string.Format("{0:dd-MM-yyyy}", @item.Date_of_Registration)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Registration_Number)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Model)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Remarks)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Vehicle_Type)</td>
+                </tr>
+            </tbody>
+        }
+    </table>
+
+</body>
+</html>
+

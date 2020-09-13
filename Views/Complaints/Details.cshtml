@@ -1,0 +1,111 @@
+﻿@model Smart_Trafic_Management_System.Models.Complaint
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="row">
+    <div class="col-md-12">
+        <h4>Complaint</h4>
+        <hr />
+
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6 ">
+            <table border="1" class="table table-responsive">
+                <tr>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.User.First_Name)
+                    </th>
+
+                    <td  class="text-center">
+                        @Html.DisplayFor(model => model.User.First_Name)
+                    </td>
+
+                </tr>
+
+
+
+                <tr>
+                    <th class="text-center"> @Html.DisplayNameFor(model => model.Title)  </th>
+
+                    <td class="text-center"> @Html.DisplayFor(model => model.Title) </td>
+                </tr>
+
+
+                <tr>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+
+                    <td class="text-center">
+                        @Html.DisplayFor(model => model.Description)
+                    </td>
+
+                </tr>
+
+
+                <tr>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+
+                    <td class="text-center">
+                        @Html.DisplayFor(model => model.Date)
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+
+                    <td class="text-center">
+                        @Html.DisplayFor(model => model.Status)
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Complaint_Category.Category_Name)
+                    </th>
+
+                    <td class="text-center">
+                        @Html.DisplayFor(model => model.Complaint_Category.Category_Name)
+                    </td>
+
+                </tr>
+
+
+            </table>
+        </div>
+
+        <div class="col-md-3">
+
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <p>
+          
+            @Html.ActionLink("Back to List", "Index","Complaints",null,new { @class="btn btn-block btn-success"})
+        </p>
+    </div>
+
+
+</body>
+</html>

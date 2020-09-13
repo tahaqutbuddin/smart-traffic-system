@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Smart_Trafic_Management_System.Models.Feedback>
+
+@{
+    ViewBag.Title = "feedback";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+
+    .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+  background-color: #550055;
+  color:#eeeeee;
+}
+
+</style>
+
+<!-- FeedBack -->
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center">Feed Backs</h1>
+                </div>
+                @using (Html.BeginForm("feedback", "Feedbacks", FormMethod.Get))
+                {
+
+                    <div class="input-group">
+                        <span class="input-group-addon">Search By First name/Email/Contact</span>
+                        @Html.TextBox("search", "", new { @class = "form-control col-md-5" })
+                        <input type="submit" value="Search" class="btn btn-success" />
+
+
+                    </div>
+                
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h ">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr >
+
+                                    <th>
+                                        <b>Name</b>
+                                    </th>
+                                    <th><b>Email/Username</b></th>
+                                    <th><b>Contact</b></th>
+                                    <th>
+                                        <b>Submit Date</b>
+                                    </th>
+                                    <th>
+                                        <b>Description</b>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 @foreach (var feedback in Model)
+                                {
+                                    <tr data-toggle="modal" data-target="#@feedback.Feedback_ID@*@Url.Action("getmodal","Feedbacks",new { id= @feedback.Feedback_ID})*@" class="tr-hover getresult" id="tr">
+
+                                        <td>@feedback.User.First_Name </td>
+                                        <td>@feedback.User.Email_ID</td>
+                                        <td>@feedback.User.Contact</td>
+                                        <td>@string.Format("{0:dd-MM-yyyy}", @feedback.date)</td>
+                                        <td>@feedback.Description</td>
+
+                                    </tr>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="@feedback.Feedback_ID" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h1 class="modal-title text-center">@feedback.User.First_Name</h1>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <small style="opacity:0.6;"> @string.Format("{0:dd-MM-yyyy}", @feedback.date)</small>
+                                                    <p>@feedback.Description.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    }
+
+
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+                }
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+        
+    </div>
+</div>
+<!-- /.FeedBack -->
+

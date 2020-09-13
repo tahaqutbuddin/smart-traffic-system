@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Smart_Trafic_Management_System.Models.User>
+
+@{
+    ViewBag.Title = "GetAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!--In Process Complaints -->
+
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center">Admins</h2>
+                </div>
+               
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table tab">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th><b>First Name</b></th>
+                                    <th><b>Last Name</b></th>
+                                    <th><b>Address</b></th>
+                                    <th><b>Email/Username</b></th>
+                                    <th><b>Password</b></th>
+                                    <th><b>Contact</b></th>
+                                    <th><b>ID Proof</b></th>
+                                    <th><b>Role</b></th>
+                                    <th><b>Status</b></th>
+                                    
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                               @using (Html.BeginForm("users", "Users", FormMethod.Post))
+                               {
+                                   
+                                       foreach (var a in Model)
+                                       {
+                                        <tr>
+                                            <td><input type="hidden" name="id" id="id" value="@a.User_id" /></td>
+                                            <td>@a.First_Name.</td>
+                                            <td><span class="name">@a.Last_Name</span> </td>
+                                            <td><span class="name">@a.Address</span> </td>
+                                            <td><span class="name">@a.Email_ID</span></td>
+                                            <td><span class="name">@a.Password</span></td>
+                                            <td><span class="name">@a.Contact</span></td>
+                                            <td><span class="name">@a.ID_Proof</span> </td>
+                                            <td><span class="name">@a.Roles</span> </td>
+                                            <td><span class="name">@a.Status</span></td>
+
+                                           
+
+                                        </tr>
+                                    }
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+
+    </div>
+</div>
+<!-- /.In Process Complaints -->
+
+

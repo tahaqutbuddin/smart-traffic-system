@@ -1,0 +1,208 @@
+﻿@model Smart_Trafic_Management_System.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <link rel="stylesheet" href="~/Content/material-design-iconic-font.min.css" )">
+    <link rel="stylesheet" href="~/Content/style.css">
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        
+        @*<div class="form-horizontal">
+            <h4>User</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.First_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Last_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email_ID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+
+            <div class="form-group">
+                @Html.Label("Confirm Password", htmlAttributes: new { @class = "control-label col-md-2", name = "conf_password" })
+                <div class="col-md-10">
+                    @Html.Editor("Confirm Password", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+    
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>*@
+
+
+
+    }
+
+
+
+
+
+
+
+
+    <div class="wrapper" style="background-image: url('../../Content/bg-registration-form-1.png')">
+        <div class="inner">
+            <div class="image-holder">
+                <img style="height: 500px" src="~/Content/registration-form-1.jpg" alt="">
+            </div>
+            <form action="" method="post" role="form">
+                <h3>Registration Form</h3>
+                <div class="form-group">
+                    <input type="text"  placeholder="First Name" name="First_Name" class="form-control">
+                    <input type="text" placeholder="Last Name" name="Last_Name" class="form-control">
+                </div>
+                <div class="form-wrapper">
+                    <input type="text" name="Address" placeholder="Address" class="form-control">
+                    <i class="zmdi zmdi-account"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Email Address" name="Email_ID" class="form-control">
+                    <i class="zmdi zmdi-email"></i>
+                </div>
+
+                @*<div class="form-wrapper">
+                    <select name="" id="" class="form-control">
+                        <option value="" disabled selected>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="femal">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+                </div>*@
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Id_Proof" name="ID_Proof" class="form-control">
+                    <i class="zmdi zmdi-lock"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Contact No" name="Contact" class="form-control">
+                    <i class="zmdi zmdi-lock"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="password" placeholder="Password" name="Password" id="pass" class="form-control">
+                    <i class="zmdi zmdi-lock"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="password" placeholder="Confirm Password" id="confpass" class="form-control">
+                    <i class="zmdi zmdi-lock"></i>
+                </div>
+
+               
+                <div id="divCheckPasswordMatch" style="color:red;font-size:15px;font-weight:bolder">
+
+                </div>
+                <div>
+                    @ViewBag.register
+                </div>
+                <button type="submit" id="btn-submit">
+                    Register
+                    <i class="zmdi zmdi-arrow-right"></i>
+                </button>
+                <button class="btn btn-success"><a href="@Url.Action("Indexlogin","User")">
+    Back to Home
+</a>
+                    <i class="zmdi zmdi-arrow-right"></i>
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+
+    <script>
+                    function checkPasswordMatch() {
+                        var password = $("#pass").val();
+                        var confirmPassword = $("#confpass").val();
+                        if (pass != null && confpass != null)
+                        {
+
+                            if (password != confirmPassword) {
+
+                                $("#divCheckPasswordMatch").html("Passwords do not match!");
+                                $("#btn-submit").hide();
+                            }
+                            else {
+                                $("#divCheckPasswordMatch").html("");
+
+                                $("#btn-submit").show();
+
+                            }
+                        }
+                        else 
+                        {
+                            $("#btn-submit").hide();
+                        }
+                    }
+                    $(document).ready(function () {
+                       
+                        $("#pass, #confpass").keyup(checkPasswordMatch);
+                        $("#btn-submit").hide();
+                        $("#divCheckPasswordMatch").html("Please Enter all the fields")
+                    });
+    </script>
+
+
+</body>
+</html>
